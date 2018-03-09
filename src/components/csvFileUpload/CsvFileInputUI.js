@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CsvFileInput = ({name, value, placeholder, onChange}) => {
   return (
-    <label class="custom-file">
+    <label className="custom-file">
       <input
         className="custom-file-input"
         name={name}
@@ -11,7 +11,7 @@ const CsvFileInput = ({name, value, placeholder, onChange}) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}/>
-        <span class="custom-file-control"></span>
+        <span className="custom-file-control"></span>
     </label>
 
   );
@@ -20,10 +20,10 @@ const CsvFileInput = ({name, value, placeholder, onChange}) => {
 const { string, func, number, oneOfType } = PropTypes;
 
 CsvFileInput.propTypes = {
-  name: string.isRequired,
-  onChange: func.isRequired,
-  placeholder: string,
-  value: oneOfType([
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([
     string,
     number
   ])
