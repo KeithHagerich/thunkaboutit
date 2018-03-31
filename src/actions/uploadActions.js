@@ -5,18 +5,18 @@ import * as types from './actionTypes';
 //     return {type: types.UPLOAD_FILE_SUCCESS, fileData};
 // }
 
-export function sendCsvSuccess() {
-    console.log("send csv");
-    return {type: types.SEND_CSV_SUCCESS};
+export function sendCsvSuccess(csvData) {
+    console.log("send csv success");
+    return {type: types.SEND_CSV_SUCCESS, csvData};
 }
 
-// export function sendCsv() {
-//     return function (dispatch) {
-//         dispatch(beginAjaxCall());
-//         return XMLHttpRequest.send(csvData).then(courses => {
-//             dispatch(sendCsvSuccess(fileData));
-//         }).catch(error => {
-//             throw(error);
-//         });
-//     };
-// }
+export function sendCsv(csvData) {
+    return function (dispatch) {
+        console.log("send csv");
+        return XMLHttpRequest.send(csvData).then(csvData => {
+            dispatch(sendCsvSuccess(csvData));
+        }).catch(error => {
+            throw(error);
+        });
+    };
+}
