@@ -6,7 +6,7 @@ import * as actions from '../../actions/uploadActions';
 import SendCsvUI from '../sendCsvButton/SendCsvUI';
 import CsvFileInputUI from '../csvFileUpload/CsvFileInputUI';
 import ReactDthree from '../reactD3';
-import csvData from '../../resources/data.csv'
+// import csvData from '../../resources/data.csv';
 
 export class ThunkHomePage extends React.Component {
     constructor(props) {
@@ -28,7 +28,6 @@ export class ThunkHomePage extends React.Component {
                     onClick={this.sendCsv}
                 />
                 <ReactDthree
-                    dataFileName={csvData}
                     height={960}
                     width={500}
                 />
