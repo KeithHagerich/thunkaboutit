@@ -10,11 +10,11 @@ import techan from 'techan';
 
 const ReactDthree = ({height, width}) => {
 
-    const margin = {top: 20, right: 20, bottom: 30, left: 50},
-            svgWidth = this.props.height - margin.left - margin.right,
-            svgHeight = this.props.width - margin.top - margin.bottom;
+    const margin = {top: 20, right: 20, bottom: 30, left: 50};
+    const svgWidth = height - margin.left - margin.right;
+    const svgHeight = width - margin.top - margin.bottom;
 
-    const parseDate = timeParse.timeParse("%d-%b-%y");
+    const parseDate = timeParse("%d-%b-%y");
 
     const x = techan.scale.financetime()
         .range([0, svgWidth]);
@@ -32,7 +32,7 @@ const ReactDthree = ({height, width}) => {
     const yAxis = axisLeft()
         .scale(y);
 
-    csv.csv("/Users/keithhagerich/Development/thunkaboutit/src/resources/data.csv", function(error, data) {
+    csv("https://github.com/KeithHagerich/thunkaboutit/blob/master/src/resources/data.csv", function(error, data) {
         const accessor = candlestick.accessor();
 
         data = data.slice(0, 200).map(function(d) {
